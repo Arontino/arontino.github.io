@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')        #Создание html страницы2
+    return render_template('index.html')        #Создание html страницы
 
 @app.route('/get_deep', methods=['POST'])       #Принимает post запрос от deep
 def get_deep():
