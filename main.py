@@ -1,11 +1,11 @@
-from flask import Flask, render_template,request,request,jsonify
+from flask import Flask, render_template,request,jsonify
 from py.algorithm_deep import algorithm_deep
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')        #Создание html страницы
+    return render_template('index.html')        #Создание html страницы2
 
 @app.route('/get_deep', methods=['POST'])       #Принимает post запрос от deep
 def get_deep():
