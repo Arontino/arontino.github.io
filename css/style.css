@@ -1,0 +1,21 @@
+:root{
+	--menu-background: #121314;
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--menu-background);
+}
+
+#menu{
+    height: 100%;
+    width: 100%;
+}
+
+#mynetwork{
+    height: 50%;
+    width: 50%;
+}
+

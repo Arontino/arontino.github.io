@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/vis-network.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/vis-network.min.js"></script>
+    <script src="js/graphInput.js"></script>
+    <script src="js/graphRender.js"></script>
+    <script src="js/graphUtils.js"></script>
+    <script src="js/prufer.js"></script>
+    <script src="js/euler.js"></script>
+    <script src="js/bipartite.js"></script>
+    <script src="js/dfs.js"></script>
+    <script src="js/bfs.js"></script>
+    <script src="js/mst.js"></script>
+    <script src="js/shortestPaths.js"></script>
+    <script src="js/coloring.js"></script>
+    <script src="js/app.js"></script>
+    <link href="data/312312.png" rel="icon">
+    <title>Графомания</title>
+</head>
+
+<body>
+    <main class="layout">
+        <section class="panel left-panel">
+            <select id="inputType">
+                <option value="adjacencyMatrix">Матрица смежности</option>
+                <option value="incidenceMatrix">Матрица инцидентности</option>
+                <option value="adjacencyList">Список смежности</option>
+            </select>
+            <textarea id="graphInput" spellcheck="false"></textarea>
+
+            <details class="generator-settings">
+                <summary>Настройки генерации графа</summary>
+                <label for="generatorVerticesCount">Количество вершин:</label>
+                <input id="generatorVerticesCount" type="number" min="1" max="20" value="6" />
+                <label for="generatorEdgeProbability">Вероятность ребра:</label>
+                <input id="generatorEdgeProbability" type="number" min="0" max="1" step="0.05" value="0.35" />
+                <div class="two-columns">
+                    <div>
+                        <label for="generatorMinWeight">Мин. вес:</label>
+                        <input id="generatorMinWeight" type="number" min="1" value="1" />
+                    </div>
+
+                    <div>
+                        <label for="generatorMaxWeight">Макс. вес:</label>
+                        <input id="generatorMaxWeight" type="number" min="1" value="9" />
+                    </div>
+                </div>
+                <label class="checkbox-label">
+                    <input id="generatorWeighted" type="checkbox" />
+                    Веса ребер
+                </label>
+                <label class="checkbox-label">
+                    <input id="generatorConnected" type="checkbox" checked />
+                    Делать граф связным
+                </label>
+            </details>
+
+            <div class="button-row">
+                <button id="buildGraphBtn">Построить граф</button>
+                <button id="generateGraphBtn" class="secondary-btn">Сгенерировать</button>
+            </div>
+
+            <label for="algorithmSelect">Алгоритмы:</label>
+            <select id="algorithmSelect">
+                <option value="analysis">Анализ графа</option>
+                <option value="dfs">DFS — обход в глубину</option>
+                <option value="checkDfs">Проверка DFS</option>
+                <option value="bfs">BFS — обход в ширину</option>
+                <option value="checkBfs">Проверка BFS</option>
+                <option value="components">Компоненты связности</option>
+                <option value="checkComponents">Проверка числа компонент</option>
+                <option value="mst">Минимальное остовное дерево</option>
+                <option value="dijkstra">Алгоритм Дейкстры</option>
+                <option value="shortestMatrix">Матрица кратчайших путей</option>
+                <option value="pruferEncode">Кодирование Прюфера</option>
+                <option value="pruferDecode">Декодирование Прюфера</option>
+                <option value="coloring">Раскраска графа</option>
+            </select>
+
+            <div id="algorithmControls" class="algorithm-controls">
+            </div>
+
+            <button id="runAlgorithmBtn" class="run-btn">Запустить</button>
+        </section>
+
+        <section class="panel graph-panel">
+            <div id="graph"></div>
+            <div id="table"></div>
+        </section>
+        <section class="panel right-panel">
+            <h2>Результат</h2>
+            <div id="resultOutput" class="result-output">
+        </section>
+    </main>
+</body>
+
+</html>
