@@ -14,7 +14,7 @@ function encodeP(m) {
   for (let i = 0; i < m.length - 2; i++) {
     const from = d.findIndex(i => i === 1);
     const to = nm[from].findIndex(i => i !== 0);
-    code.push(n_to_l(from));
+    code.push(n_to_l(to));
     steps.push({type: "edge", from: from, to: to,
       text: `Удаление ребра ${n_to_l(from)}-${n_to_l(to)} и вершины ${n_to_l(from)}. Код: ${code}`
     });
